@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.action_chains import ActionChains
 
-class TestLogin(unittest.TestCase):
+class TestLeave(unittest.TestCase):
 
     def setUp(self):
        self.driver = webdriver.Chrome(ChromeDriverManager().install())

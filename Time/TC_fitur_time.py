@@ -10,7 +10,7 @@ class Testtime(unittest.TestCase):
     def setUp(self):
        self.driver = webdriver.Chrome(ChromeDriverManager().install())
 
-    def Test_timesheet_Search_Employee_tanpa_data(self):
+    def test_timesheet_Search_Employee_tanpa_data(self):
         
         self.driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         time.sleep(3)

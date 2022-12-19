@@ -14,7 +14,7 @@ Berikut ini hasil Automation Testing
     b. Manual Testing: Leave dan time
     c. Automation Testing: 
         - Leave: Apply Leave, Add entitlement, leave view detail, add comment
-        - time: My Timesheet, View Attendance
+        - time: search employee, submit attandance, search my record, add customer, view attadance, search employee without data
 - Ardi Muhammad
     a. Test Cases: Performance , dan Recruitment
     b. Manual Testing: Performance , dan Recruitment

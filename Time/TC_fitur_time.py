@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.action_chains import ActionChains
-
+from selenium.webdriver.common.keys import Keys
 class Testtime(unittest.TestCase):
 
     def setUp(self):
@@ -28,7 +28,7 @@ class Testtime(unittest.TestCase):
         assert self.driver.find_element(By.CSS_SELECTOR, ".oxd-input-field-error-message").text == "Required"
         time.sleep(5)
        
-    def test_timesheet_Search_Employee(self):
+    def test_timesheet_Search_Employee(self): BELUM
         
         self.driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         time.sleep(3)
@@ -40,14 +40,18 @@ class Testtime(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(By.LINK_TEXT, "Time").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, ".//div[contains(@class, 'oxd-autocomplete-text-input--before").send_keys("Odis  Adalwin")
-        time.sleep(5)        
-        # self.driver.find_element(By.XPATH, ".//button[contains(@class, 'oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space')]").click()
-        # time.sleep(2) 
+        # self.driver.find_element(By.CSS_SELECTOR, ".oxd-autocomplete-text-input > input").send_keys("Linda Jane Anderson")
+        # time.sleep(2)        
+        # self.driver.find_element(By.XPATH, ".//div[contains(@class, 'oxd-autocomplate-option')]").click()
+        # time.sleep(5) 
+        container = self.driver.find_element(By.XPATH, ".//div[contains(@class, 'oxd-autocomplete-wrapper')]")
+        container.find_element(By.XPATH, ".//div[contains(@class, 'oxd-autocomplate-option')]").send_keys("Linda Jane Anderson")
+        time.sleep(5)
   
         # assert self.driver.find_element(By.CSS_SELECTOR, ".oxd-input-field-error-message").text == ""
         # time.sleep(5)
-        
+
+
     def test_my_timesheet_submit_attandance_sukses(self):
         
         self.driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
@@ -70,8 +74,8 @@ class Testtime(unittest.TestCase):
         time.sleep(4)
         assert self.driver.find_element(By.XPATH, ".//div[contains(@class, 'orangehrm-timesheet-footer')]").text == ""
         time.sleep(5)
-        
-    def test_my_timesheet_myrecord_search(self):
+
+    def test_my_timesheet_view_attandance_employee(self):
         
         self.driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         time.sleep(1)
@@ -80,23 +84,19 @@ class Testtime(unittest.TestCase):
         self.driver.find_element(By.NAME,"password").send_keys("admin123")
         time.sleep(2)
         self.driver.find_element(By.CSS_SELECTOR, ".oxd-button").click()
-        time.sleep(3)
+        time.sleep(2)
         self.driver.find_element(By.LINK_TEXT, "Time").click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, ".//span[contains(@class, 'oxd-topbar-body-nav-tab-item')]").click()
         time.sleep(3)
-        self.driver.find_elements(By.XPATH, ".//span[contains(@class, 'oxd-topbar-body-nav-tab-item')]")[1].click()
+        self.driver.find_elements(By.XPATH, ".//a[contains(@class, 'oxd-topbar-body-nav-tab-link')]")[1].click()
         time.sleep(3)
-        self.driver.find_element(By.XPATH, ".//a[contains(@class, 'oxd-topbar-body-nav-tab-link')]").click()
-        time.sleep(3)
-        self.driver.find_elements(By.XPATH, ".//input[contains(@class, 'oxd-input oxd-input--active')]")[1].send_keys("2022-12-01")
-        time.sleep(3)
-        self.driver.find_element(By.XPATH, ".//div[contains(@class, 'oxd-form-actions')]").click()
-        time.sleep(3)
-        self.driver.find_element(By.XPATH, ".//button[contains(@class, 'oxd-button oxd-button--medium oxd-button--secondary')]").click()
+        self.driver.find_element(By.XPATH, ".//button[contains(@class, 'oxd-button oxd-button--medium oxd-button--text oxd-table-cell-action-space')]").click()
         time.sleep(5)
 
         assert self.driver.find_element(By.XPATH, ".//div[contains(@class, 'orangehrm-timesheet-footer')]").text == ""
         time.sleep(5)
-        
+
     def test_my_timesheet_myrecord_search(self):
         
         self.driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
@@ -121,7 +121,7 @@ class Testtime(unittest.TestCase):
         time.sleep(3)
         self.driver.find_element(By.XPATH, ".//button[contains(@class, 'oxd-button oxd-button--medium oxd-button--secondary')]").click()
         time.sleep(5)
-        
+
         # assert self.driver.find_element(By.XPATH, ".//div[contains(@class, 'orangehrm-paper-container')]").text == ""
         # time.sleep(5)
 
@@ -151,8 +151,8 @@ class Testtime(unittest.TestCase):
         time.sleep(5)
 
         assert self.driver.find_element(By.XPATH, ".//div[contains(@class, 'oxd-layout-footer')]").text == ""
-        time.sleep(5)        
-        
+        time.sleep(5)
+
     def tearDown(self):
         self.driver.close()
         

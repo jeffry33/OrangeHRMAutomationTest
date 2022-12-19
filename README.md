@@ -10,6 +10,11 @@ Berikut ini hasil Automation Testing
 2. Jobdesk Team 13 :
 - Faizal Triandi (Login, Admin, PIM)
 - Oktavianus Jeffry (Leave,Time)
+    a. Test Cases: Leave dan Time
+    b. Manual Testing: Leave dan time
+    c. Automation Testing: 
+        - Leave: Apply Leave, Add entitlement, leave view detail, add comment
+        - time: My Timesheet, View Attendance
 - Ardi Muhammad
     a. Test Cases: Performance , dan Recruitment
     b. Manual Testing: Performance , dan Recruitment
